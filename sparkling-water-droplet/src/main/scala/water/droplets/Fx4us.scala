@@ -21,43 +21,31 @@ object Fx4us {
     val h2oContext = new H2OContext(sc).start()
     import h2oContext._
 
-    // In Scala how to create array of floats?
-    val floats1 = Array[Double](1.1, 2.2, 3.3, 4.4, 5.5)
-    val floats2 = Array[Double](1.1, 1.1, 2.2, 3.3, 4.4)
-    // nn will become func arg:
-    val nn = 1
+    // In Scala how to create array of floating point numbers?
+    val fp1 = Array[Double](-1.1, 0.1, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9)
 
-    // In Scala how to slice, index?
-    val floats3 = floats1.slice(0,nn)
-    val floats7 = Array.fill[Double](3)(1.1)
+    // nn should be number of times to push:
+    val nn = 2
 
-    // In scala how to slice from end of array?
-    val floats4 = floats1.dropRight(nn)
-
-    // In Scala how to concat arrays?
-    val floats5 = floats3 ++ floats4
-
-    val floats6 = leftpushn(nn,floats1)
-    val floats8 = leftpushn(2,floats1)
-    val floats9 = rightpushn(2,floats1)
+    val fp2 = leftpushn(nn, fp1)
+    val fp3 = rightpushn(nn, fp1)
 
     // Shutdown application
     sc.stop()
   }
 
-  def leftpushn(n:Int, a1:Array[Double]):Array[Double] = {
-    val a2 = a1.slice(0,n)
-    val a3 = a1.dropRight(n)
-    a2 ++ a3
+  // This should add to left, subtract from right:
+  def leftpushn(n:Int, array_in:Array[Double]):Array[Double] = {
+    val lpiece = array_in.slice(0,n) // the small piece
+    val rpiece = array_in.dropRight(n)
+    lpiece ++ rpiece
   }
 
-  def rightpushn(n:Int, a1:Array[Double]):Array[Double] = {
-    val myl = a1.length
-    val mystart = a1.length-n
-    val myend   = a1.length
-    val a2 = a1.slice(n,myend)
-    val a3 = a1.slice(mystart,myend)
-    a2 ++ a3
+  // This should subtract from left, add to right:
+  def rightpushn(n:Int, array_in:Array[Double]):Array[Double] = {
+    val lpiece = array_in.drop(n) // the large piece
+    val rpiece = array_in.drop(-n + array_in.length)
+    lpiece ++ rpiece
   }
 
   def configure(appName:String = "Fx4us"):SparkConf = {

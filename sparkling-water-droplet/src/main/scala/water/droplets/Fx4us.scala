@@ -29,6 +29,7 @@ object Fx4us {
 
     // In Scala how to slice, index?
     val floats3 = floats1.slice(0,nn)
+    val floats7 = Array.fill[Double](3)(1.1)
 
     // In scala how to slice from end of array?
     val floats4 = floats1.dropRight(nn)
@@ -36,8 +37,27 @@ object Fx4us {
     // In Scala how to concat arrays?
     val floats5 = floats3 ++ floats4
 
+    val floats6 = leftpushn(nn,floats1)
+    val floats8 = leftpushn(2,floats1)
+    val floats9 = rightpushn(2,floats1)
+
     // Shutdown application
     sc.stop()
+  }
+
+  def leftpushn(n:Int, a1:Array[Double]):Array[Double] = {
+    val a2 = a1.slice(0,n)
+    val a3 = a1.dropRight(n)
+    a2 ++ a3
+  }
+
+  def rightpushn(n:Int, a1:Array[Double]):Array[Double] = {
+    val myl = a1.length
+    val mystart = a1.length-n
+    val myend   = a1.length
+    val a2 = a1.slice(n,myend)
+    val a3 = a1.slice(mystart,myend)
+    a2 ++ a3
   }
 
   def configure(appName:String = "Fx4us"):SparkConf = {

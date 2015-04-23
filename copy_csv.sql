@@ -36,8 +36,8 @@ INSERT INTO stage3(
   SELECT 
   pair
   ,ttime
-  ,AVG(bid) bid
-  ,AVG(ask) ask
+  ,ROUND(AVG(bid)::NUMERIC,4) bid
+  ,ROUND(AVG(ask)::NUMERIC,4) ask
   FROM stage2 GROUP BY pair,ttime ORDER BY pair,ttime;
 
 select * from stage1;

@@ -22,8 +22,7 @@ INSERT INTO stage2(
   )
   SELECT 
   pair
-  ,ttime
+  ,date_trunc('hour', ttime) AS ttime
   ,bid
   ,ask
   FROM stage1;
-

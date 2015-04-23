@@ -4,14 +4,14 @@
 
 # This script should get data from truefx.com
 
-mkdir -p /tmp/fxcsv/
-cd       /tmp/fxcsv/
+mkdir -p ~/fxcsv/
+cd       ~/fxcsv/
 
-for pair in AUDUSD EURUSD
+for pair in AUDUSD EURUSD EURGBP GBPUSD NZDUSD USDCAD USDJPY
 do
-  for yr in 2009
+  for yr in 2009 2010 2011 2012 2013 2014 2015
   do
-    for month in 5 6 7 8 9 10 11 12
+    for month in 1 2 3 4 5 6 7 8 9 10 11 12
     do
       nummonth=` date --date="${yr}-${month}-01" '+%m'`
       namemonth=`date --date="${yr}-${month}-01" '+%B'`

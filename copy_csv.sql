@@ -22,10 +22,24 @@ INSERT INTO stage2(
   )
   SELECT 
   pair
-  ,date_trunc('hour',ttime+interval '30 minutes') AS ttime
+  ,date_trunc('hour',ttime+interval '30 minutes') ttime
   ,bid
   ,ask
-  FROM stage1;
+  FROM stage1 ORDER BY pair,ttime;
+
+INSERT INTO stage3(
+  pair
+  ,ttime
+  ,bid
+  ,ask
+  )
+  SELECT 
+  pair
+  ,ttime
+  ,AVG(bid) bid
+  ,AVG(ask) ask
+  FROM stage2 GROUP BY pair,ttime ORDER BY pair,ttime;
 
 select * from stage1;
 select * from stage2;
+select * from stage3;

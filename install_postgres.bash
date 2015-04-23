@@ -7,7 +7,7 @@
 apt-get install postgresql
 
 # Linux user ann should be able to connect to ann db as ann:
-su -c "createdb   ann" postgres
-su -c "createuser ann" postgres
+su -c "createdb      ann" postgres
+su -c "createuser -s ann" postgres
 
 exit

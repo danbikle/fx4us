@@ -8,7 +8,7 @@ cd /home/ann/fx4us/
 
 for pair in AUDUSD
 do
-  unzip -p ~/fxcsv/AUDUSD-2009-05.zip |tail> /tmp/fx.csv
+  unzip -p ~/fxcsv/AUDUSD-2009-05.zip | tail > /tmp/fx.csv
   ./psql.bash -f copy_csv.sql
 done
 

@@ -13,7 +13,7 @@ do
   do
     for mn in 01 02 03 04 05 06 07 08 09 10 11 12
     do
-      unzip -p ~/fxcsv/${pair}-${yr}-${mn}.zip | head > /tmp/fx.csv
+      unzip -p ~/fxcsv/${pair}-${yr}-${mn}.zip > /tmp/fx.csv
       ./psql.bash -f copy_csv.sql
     done
   done

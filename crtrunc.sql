@@ -11,4 +11,11 @@ CREATE TABLE IF NOT EXISTS stage1(
   ,bid   float8
   ,ask   float8);
 
+CREATE TABLE IF NOT EXISTS stage2(
+  pair   VARCHAR
+  ,ttime TIMESTAMP
+  ,bid   float8
+  ,ask   float8);
+
 TRUNCATE TABLE stage1;
+TRUNCATE TABLE stage2;

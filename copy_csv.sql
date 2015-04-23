@@ -14,3 +14,16 @@ COPY stage1(
   ,ask
   ) FROM '/tmp/fx.csv' WITH csv;
 
+INSERT INTO stage2(
+  pair
+  ,ttime
+  ,bid
+  ,ask
+  )
+  SELECT 
+  pair
+  ,ttime
+  ,bid
+  ,ask
+  FROM stage1;
+

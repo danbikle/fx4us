@@ -22,7 +22,11 @@ INSERT INTO stage2(
   )
   SELECT 
   pair
-  ,date_trunc('hour', ttime) AS ttime
+  ,date_trunc('day',ttime)+ ROUND(date_part('hour',ttime)) ttime
   ,bid
   ,ask
   FROM stage1;
+
+select * from stage1;
+select ROUND(date_part('hour',ttime)) AS rround from stage1;
+select * from stage2;

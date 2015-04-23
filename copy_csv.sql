@@ -5,7 +5,11 @@
 -- Demo:
 -- /home/ann/fx4us/psql.bash -f copy_csv.sql
 
--- This script should copy CSV data into table: pprices
+-- This script should copy CSV data into table: fxp
+
+-- These tables contain temp data:
+TRUNCATE TABLE stage1;
+TRUNCATE TABLE stage2;
 
 COPY stage1(
   pair
@@ -27,7 +31,7 @@ INSERT INTO stage2(
   ,ask
   FROM stage1 ORDER BY pair,ttime;
 
-INSERT INTO stage3(
+INSERT INTO fxp(
   pair
   ,ttime
   ,bid
@@ -39,7 +43,3 @@ INSERT INTO stage3(
   ,ROUND(AVG(bid)::NUMERIC,4) bid
   ,ROUND(AVG(ask)::NUMERIC,4) ask
   FROM stage2 GROUP BY pair,ttime ORDER BY pair,ttime;
-
-select * from stage1;
-select * from stage2;
-select * from stage3;

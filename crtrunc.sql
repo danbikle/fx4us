@@ -8,21 +8,21 @@
 CREATE TABLE IF NOT EXISTS stage1(
   pair   VARCHAR
   ,ttime TIMESTAMP
-  ,bid   float8
-  ,ask   float8);
+  ,bid   NUMERIC
+  ,ask   NUMERIC);
 
 CREATE TABLE IF NOT EXISTS stage2(
   pair   VARCHAR
   ,ttime TIMESTAMP
-  ,bid   float8
-  ,ask   float8);
+  ,bid   NUMERIC
+  ,ask   NUMERIC);
 
-CREATE TABLE IF NOT EXISTS stage3(
+CREATE TABLE IF NOT EXISTS fxp(
   pair   VARCHAR
   ,ttime TIMESTAMP
-  ,bid   float8
-  ,ask   float8);
+  ,bid   NUMERIC
+  ,ask   NUMERIC);
 
-TRUNCATE TABLE stage1;
-TRUNCATE TABLE stage2;
-TRUNCATE TABLE stage3;
+-- fxp will be full when I am done.
+-- At this point fxp should be empty:
+TRUNCATE TABLE fxp;

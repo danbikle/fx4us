@@ -6,8 +6,13 @@
 
 cd /home/ann/fx4us/
 
+# I should get fx prices
 echo ./wget10.bash
 
+# I should install postgres and create/setup postges-ann account
 echo ./install_postgres.bash
 
-./psql.bash -f copy_csv.sql
+# I should fill fxp
+echo ./copy_csv.bash
+
+

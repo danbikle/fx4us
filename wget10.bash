@@ -28,12 +28,11 @@ for pair in AUDUSD EURUSD EURGBP GBPUSD NZDUSD USDCAD USDJPY
 do
   for yr in 2009 2010 2011 2012 2013 2014 2015
   do
-    for month in 1 2 3 4 5 6 7 8 9 10 11 12
+    for month in 01 02 03 04 05 06 07 08 09 10 11 12
     do
-      nummonth=` date --date="${yr}-${month}-01" '+%m'`
       namemonth=`date --date="${yr}-${month}-01" '+%B'`
       upmonth=${namemonth^^}
-      zipurl="truefx.com/dev/data/${yr}/${upmonth}-${yr}/${pair}-${yr}-${nummonth}.zip"
+      zipurl="truefx.com/dev/data/${yr}/${upmonth}-${yr}/${pair}-${yr}-${month}.zip"
       wget --user-agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36' $zipurl
       sleep 2
     done

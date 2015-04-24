@@ -47,7 +47,6 @@ print(csvf)
 df1 = pd.read_csv(csvf)
 
 # I should generate features from df1.
-pdb.set_trace()
 
 # All features come from cp column.
 cp_l = [elm for elm in np.array(df1['cp'])]
@@ -56,3 +55,10 @@ cp_l = [elm for elm in np.array(df1['cp'])]
 # To get it, I should push from right:
 # vis: [old, new] + [new]
 cplead_l = cp_l + [cp_l[-1]]
+
+# I should get cplag_1 by pushing from left:
+cplag1_l = [cp_l[0]] + cp_l
+pdb.set_trace()
+
+# I should get cplag_2:
+cplag2_l = [cp_l[:2]] + cp_l

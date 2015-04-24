@@ -53,12 +53,17 @@ cp_l = [elm for elm in np.array(df1['cp'])]
 
 # Noting that cp is sorted by date-ascending, I should get cplead_1.
 # To get it, I should push from right:
-# vis: [old, new] + [new]
-cplead_l = cp_l + [cp_l[-1]]
+# vis: [old:new] + [new]
+cplead_l = cp_l  + [cp_l[-1]]
 
 # I should get cplag_1 by pushing from left:
-cplag1_l = [cp_l[0]] + cp_l
+#          [     old] + [old:new]
+cplag1_l = [cp_l[:1]] + cp_l
 pdb.set_trace()
+# I should get cplag_x:
+cplag2_l  = [cp_l[:2]]  + cp_l
+cplag4_l  = [cp_l[:4]]  + cp_l
+cplag8_l  = [cp_l[:8]]  + cp_l
+cplag16_l = [cp_l[:16]] + cp_l
+# I should snip off ends so new columns as long as cp column:
 
-# I should get cplag_2:
-cplag2_l = [cp_l[:2]] + cp_l

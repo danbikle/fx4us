@@ -13,9 +13,10 @@ cd ~ann/fx4us/
 
 for pair in aud_usd
 do
-  echo 'pair,ttime,cp'    >  /tmp/fx4us_${pair}.csv
-  grep $pair ~ann/fxp.csv >> /tmp/fx4us_${pair}.csv
-  python gen_feat.py /tmp/fx4us_${pair}.csv $pair ~ann/fx_feat/${pair}.csv
+  infile=/tmp/fx4us_${pair}.csv
+  echo 'pair,ttime,cp'    >  $infile
+  grep $pair ~ann/fxp.csv >> $infile
+  python gen_feat.py $infile $pair ~ann/fx_feat/${pair}.csv
 done
 
 exit

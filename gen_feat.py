@@ -31,17 +31,18 @@ import datetime
 import sys
 
 print('hello, from '+ sys.argv[0])
-pdb.set_trace()
-#  len(sys.argv) should == 2
-if len(sys.argv) == 1:
-  print('I need a command line arg.')
+
+#  len(sys.argv) should == 4
+if len(sys.argv) < 4:
+  print('I need a proper command line.')
   print('Demo:')
-  print('python '+sys.argv[0]+' /tmp/spy4us/ff1.csv')
+  print('python '+sys.argv[0]+' /tmp/fx4us_aud_usd.csv aud_usd ~ann/fx_feat/aud_usd.csv')
   print('Try again. bye.')
   sys.exit()
-
+pdb.set_trace()
 csvf = sys.argv[1]
 print(csvf)
 
 # I should load the csv into a DataFrame
-df1 = pd.read_csv(csvf).sort(['cdate'])
+df1 = pd.read_csv(csvf)
+

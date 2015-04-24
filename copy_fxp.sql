@@ -17,7 +17,7 @@ UPDATE fxp SET pair = 'usd_cad' WHERE pair = 'USD/CAD';
 UPDATE fxp SET pair = 'usd_jpy' WHERE pair = 'USD/JPY';
 UPDATE fxp SET pair = 'eur_gbp' WHERE pair = 'EUR/GBP';
 
-COPY(SELECT pair,ttime,bid FROM fxp ORDER BY pair,ttime)TO '/tmp/fxp.csv' csv header;
+COPY(SELECT pair,ttime,bid cp FROM fxp ORDER BY pair,ttime)TO '/tmp/fxp.csv' csv header;
 
 -- done
 

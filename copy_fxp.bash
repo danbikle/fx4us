@@ -8,7 +8,7 @@
 
 cd /home/ann/fx4us/
 ./psql.bash -f copy_fxp.sql
-cp /tmp/fxp.csv ~/ann/
+cp /tmp/fxp.csv ~ann/
 
 exit
 

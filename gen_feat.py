@@ -59,7 +59,7 @@ cplead_l = cp_l  + [cp_l[-1]]
 # I should get cplag_1 by pushing from left:
 #          [     old] + [old:new]
 cplag1_l = [cp_l[:1]] + cp_l
-pdb.set_trace()
+
 # I should get cplag_x:
 cplag2_l  = [cp_l[:2]]  + cp_l
 cplag4_l  = [cp_l[:4]]  + cp_l
@@ -67,3 +67,22 @@ cplag8_l  = [cp_l[:8]]  + cp_l
 cplag16_l = [cp_l[:16]] + cp_l
 # I should snip off ends so new columns as long as cp column:
 
+cplead_l = cplead_l[1:]
+cplag1_l = cplag1_l[:-1]
+cplag2_l = cplag2_l[:-2]
+cplag4_l = cplag4_l[:-4]
+cplag8_l = cplag8_l[:-8]
+cplag16_l = cplag16_l[:-16]
+pdb.set_trace()
+len(cp_l) == len(cplead_l)
+len(cp_l) == len(cplag1_l)
+len(cp_l) == len(cplag16_l)
+
+# NumPy allows me to do arithmetic on its Arrays.
+# I should convert my lists to Arrays:
+cp_a     = np.array(cp)
+cplead_a = np.array(cplead_l)
+cplag1_a = np.array(cplag1_l)
+cplag2_a = np.array(cplag2_l)
+cplag4_a = np.array(cplag4_l)
+cplag8_a = np.array(cplag8_l)

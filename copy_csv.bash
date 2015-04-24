@@ -2,6 +2,9 @@
 
 # /home/ann/fx4us/copy_csv.bash
 
+# This script should aggregate sub-second forex-price observations
+# into 1 hour price observations.
+
 cd /home/ann/fx4us/
 
 # I should create some empty tables

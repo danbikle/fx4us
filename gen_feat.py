@@ -39,7 +39,7 @@ if len(sys.argv) < 4:
   print('python '+sys.argv[0]+' /tmp/fx4us_aud_usd.csv aud_usd ~ann/fx_feat/aud_usd.csv')
   print('Try again. bye.')
   sys.exit()
-pdb.set_trace()
+
 csvf = sys.argv[1]
 print(csvf)
 
@@ -47,11 +47,10 @@ print(csvf)
 df1 = pd.read_csv(csvf)
 
 # I should generate features from df1.
+pdb.set_trace()
 
-# cp should be a list:
-cp_l = [elm for elm in df1['cp'].values]
-# try this:
-cp_l = [elm for elm in np.Array(df1['cp'])]
+# All features come from cp column.
+cp_l = [elm for elm in np.array(df1['cp'])]
 
 # Noting that cp is sorted by date-ascending, I should get cplead_1.
 # To get it, I should push from right:

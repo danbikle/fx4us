@@ -46,3 +46,14 @@ print(csvf)
 # I should load the csv into a DataFrame
 df1 = pd.read_csv(csvf)
 
+# I should generate features from df1.
+
+# cp should be a list:
+cp_l = [elm for elm in df1['cp'].values]
+# try this:
+cp_l = [elm for elm in np.Array(df1['cp'])]
+
+# Noting that cp is sorted by date-ascending, I should get cplead_1.
+# To get it, I should push from right:
+# vis: [old, new] + [new]
+cplead_l = cp_l + [cp_l[-1]]

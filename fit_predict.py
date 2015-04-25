@@ -56,7 +56,7 @@ yc_a = y_a > 0.0
 x_a  = a1_a[:,4:]
 
 # I should specify gap between oos-data and train-data:
-train_oos_gap = 1
+train_oos_gap = 2
 
 # setup the prediction loop:
 pend   = len(y_a)

@@ -44,8 +44,15 @@ delta_l = [elm for elm in delta_a]
 delta_l   = delta_l[:-1]
 cp_mirror = [cp_l[0]]
 green_l   = [cp_l[0]]
-pdb.set_trace()
 # I should get my predictions
-prediction_l = [(row-0.5) for row in df1['upprop']]
+prediction_l = [(row-0.5) for row in df1['upprob']]
 # I should now have a list full of predictions centered on 0.0
 
+# I should work on the green line
+cp_i = 0
+for delta in delta_l:
+  green_pt    = green_l[cp_i]
+  prediction  = prediction_l[cp_i]
+  green_delta = delta * np.sign(prediction)
+  green_l.append(green_pt + green_delta)
+  cp_i += 1

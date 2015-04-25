@@ -16,7 +16,7 @@ do
   infile=/tmp/fx4us_${pair}.csv
   echo 'pair,ttime,cp'    >  $infile
   grep $pair ~ann/fxp.csv >> $infile
-  python gen_feat.py $infile $pair ~ann/fx_feat/${pair}.csv
+  python gen_feat.py $infile ~ann/fx_feat/${pair}.csv
 done
 
 exit

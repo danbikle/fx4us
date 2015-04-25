@@ -76,5 +76,12 @@ for oos_start in range(pstart,pend):
   x_oos       = x_a[ oos_start]
   yc_oos      = yc_a[oos_start]
   lrmodel.fit(x_train, yc_train)
-  lrmodel.predict_proba(x_oos.astype(float))[0,1]
+  upprob      = lrmodel.predict_proba(x_oos.astype(float))[0,1]
+  predictions.append( [a1_a[oos_start,1], upprob, y_a[oos_start] ])
 
+df2 = pd.DataFrame(predictions)
+df.columns=['ttime','upprob','actual']
+df2.to_csv(outfile, index=False, float_format='%4.2f')
+print('See predictions here:')
+print(outfile)
+# done

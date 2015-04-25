@@ -69,10 +69,12 @@ predictions = []
 
 for oos_start in range(pstart,pend):
   print(a1_a[oos_start,1])
-  yc_oos    = yc_a[oos_start]
   train_start = oos_start - train_oos_gap - onum
   train_end   = train_start + onum
   x_train     = x_a[ train_start:train_end]
   yc_train    = yc_a[train_start:train_end]
+  x_oos       = x_a[ oos_start]
+  yc_oos      = yc_a[oos_start]
   lrmodel.fit(x_train, yc_train)
+  lrmodel.predict_proba(x_oos.astype(float))[0,1]
 

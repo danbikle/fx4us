@@ -48,22 +48,28 @@ df1 = pd.read_csv(infile)
 a1_a = np.array(df1)
 # sklearn cannot use columns 0,1,2
 y_a  = a1_a[:,3 ]
+yc_a = y_a > 0.0
 # I should have structured input CSV so all x-columns on right-hand-side.
 # That should be convenient now:
 x_a  = a1_a[:,4:]
 
 # I should specify gap between oos-data and train-data:
-is_oos_gap = 1
+train_oos_gap = 1
 
 # setup the prediction loop:
 pend   = len(y_a)
 pstart = pend - pnum
+# Ref:
+# http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+from sklearn import linear_model
+lrmodel     = linear_model.LogisticRegression()
+predictions = []
 
 for oos_start in range(pstart,pend):
   print(a1_a[oos_start,1])
-  y_oos    = y_a[oos_start]
-  is_start = oos_start - is_oos_gap - onum
-  is_end   = is_start + onum
-  x_oos    = x_a[is_start:is_end]
-
+  yc_oos    = yc_a[oos_start]
+  train_start = oos_start - train_oos_gap - onum
+  train_end   = train_start + onum
+  x_train    = x_a[train_start:train_end]
+  lrmodel.fit(x_train, yc_train)
 

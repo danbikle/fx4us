@@ -11,7 +11,7 @@
 mkdir -p ~ann/fx_feat/
 cd ~ann/fx4us/
 
-for pair in aud_usd
+for pair in aud_usd eur_usd eur_gbp gbp_usd nzd_usd usd_cad usd_jpy
 do
   infile=/tmp/fx4us_${pair}.csv
   echo 'pair,ttime,cp'    >  $infile

@@ -43,6 +43,8 @@ infile  = sys.argv[1]
 onum    = int(sys.argv[2])
 pnum    = int(sys.argv[3])
 outfile = sys.argv[4]
-pdb.set_trace()
 # I should load the csv into a DataFrame
 df1 = pd.read_csv(infile)
+pdb.set_trace()
+a1_a = np.array(df1)
+a1_a[:1]

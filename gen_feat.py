@@ -95,7 +95,7 @@ df1['piplag4']  = piplag4_a
 df1['piplag8']  = piplag8_a
 df1['piplag16'] = piplag16_a
 # I should save my work into a CSV file.
-df1.to_csv(sys.argv[2], float_format='%4.1f', index=False)
+df1.to_csv(sys.argv[2], float_format='%4.4f', index=False)
 print('The features are in this file:')
 print(sys.argv[2])
 print('Now the machine can learn.')

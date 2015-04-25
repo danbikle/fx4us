@@ -55,6 +55,10 @@ yc_a = y_a > 0.0
 # That should be convenient now:
 x_a  = a1_a[:,4:]
 
+# debug
+x_a  = a1_a[:,3:]
+# debug
+
 # I should specify gap between oos-data and train-data:
 train_oos_gap = 1
 
@@ -79,8 +83,8 @@ for oos_start in range(pstart,pend):
   upprob      = lrmodel.predict_proba(x_oos.astype(float))[0,1]
   predictions.append( [a1_a[oos_start,1], upprob, y_a[oos_start] ])
 
-df2 = pd.DataFrame(predictions)
-df.columns=['ttime','upprob','actual']
+df2        = pd.DataFrame(predictions)
+df2.columns=['ttime','upprob','actual']
 df2.to_csv(outfile, index=False, float_format='%4.2f')
 print('See predictions here:')
 print(outfile)

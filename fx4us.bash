@@ -23,6 +23,12 @@ echo ./copy_fxp.bash
 # I should generate features from fxp.csv
 echo ./gen_feat.bash
 
+# I should fit/predict:
+echo ./fit_predict.bash
+
+# I should plotem:
+echo ./plotem.bash
+
 exit
 
 

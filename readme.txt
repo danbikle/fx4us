@@ -28,7 +28,7 @@ Instructions:
 
 - git clone https://github.com/danbikle/fx4us.git
 
-- echo 'export PATH=~ann/anaconda3/bin:~ann/.meteor:$PATH' >> ~ann/.bashrc
+- echo 'export PATH=~ann/anaconda3/bin:$PATH' >> ~ann/.bashrc
 
 - Run this script:
   /home/ann/fx4us/fx4us.bash

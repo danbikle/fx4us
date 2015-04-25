@@ -66,9 +66,8 @@ pstart = pend - pnum
 from sklearn import linear_model
 lrmodel     = linear_model.LogisticRegression()
 predictions = []
-
+print('Busy...')
 for oos_start in range(pstart,pend):
-  print(a1_a[oos_start,1])
   train_start = oos_start - train_oos_gap - onum
   train_end   = train_start + onum
   x_train     = x_a[ train_start:train_end]

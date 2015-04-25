@@ -60,7 +60,7 @@ pend   = len(y_a)
 pstart = pend - pnum
 
 for oos_start in range(pstart,pend):
-  print(a1_a[oos_start,0])
+  print(a1_a[oos_start,1])
   y_oos = y_a[oos_start]
 
 

@@ -48,8 +48,10 @@ df1 = pd.read_csv(infile)
 a1_a = np.array(df1)
 # sklearn cannot use columns 0,1,2
 y_a  = a1_a[:,3 ]
+# I should classify:
 yc_a = y_a > 0.0
-# I should have structured input CSV so all x-columns on right-hand-side.
+
+# Earlier I should have structured input CSV so all x-columns on right-hand-side.
 # That should be convenient now:
 x_a  = a1_a[:,4:]
 
@@ -70,6 +72,7 @@ for oos_start in range(pstart,pend):
   yc_oos    = yc_a[oos_start]
   train_start = oos_start - train_oos_gap - onum
   train_end   = train_start + onum
-  x_train    = x_a[train_start:train_end]
+  x_train     = x_a[ train_start:train_end]
+  yc_train    = yc_a[train_start:train_end]
   lrmodel.fit(x_train, yc_train)
 

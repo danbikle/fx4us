@@ -78,7 +78,7 @@ cplag1_a  = np.array(cplag1_l)
 cplag2_a  = np.array(cplag2_l)
 cplag4_a  = np.array(cplag4_l)
 cplag8_a  = np.array(cplag8_l)
-cplag16_a = np.array(cplag16l)
+cplag16_a = np.array(cplag16_l)
 # I should calculate pip-deltas:
 piplead_a  = 100.0 * 100.0 * (cplead_a - cp_a) /cp_a
 piplag1_a  = 100.0 * 100.0 * (cp_a - cplag1_a) /cplag1_a

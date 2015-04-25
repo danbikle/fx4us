@@ -45,6 +45,9 @@ pnum    = int(sys.argv[3])
 outfile = sys.argv[4]
 # I should load the csv into a DataFrame
 df1 = pd.read_csv(infile)
-pdb.set_trace()
 a1_a = np.array(df1)
-a1_a[:1]
+# sklearn cannot use columns 0,1,2
+a2_a = a1_a[:,3:]
+pdb.set_trace()
+x_a  = a1_a[:,4:]
+y_a  = a1_a[:,3 ]

@@ -10,7 +10,7 @@
 
 cd ~ann/fx4us/
 mkdir -p ~ann/fit_predict/
-for pair in aud_usd
+for pair in aud_usd eur_usd eur_gbp gbp_usd nzd_usd usd_cad usd_jpy
 do
   # onum is number of observations to learn from:
   for onum in 1000 5000 10000

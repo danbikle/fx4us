@@ -39,15 +39,16 @@ if len(sys.argv) < 4:
   sys.exit()
 
 # I should read the commandline:
-infile  = sys.argv[1]
+infile  =     sys.argv[1]
 onum    = int(sys.argv[2])
 pnum    = int(sys.argv[3])
-outfile = sys.argv[4]
+outfile =     sys.argv[4]
 # I should load the csv into a DataFrame
 df1 = pd.read_csv(infile)
 a1_a = np.array(df1)
 # sklearn cannot use columns 0,1,2
-a2_a = a1_a[:,3:]
-pdb.set_trace()
-x_a  = a1_a[:,4:]
 y_a  = a1_a[:,3 ]
+# I should have structured input CSV so all x-columns on right-hand-side.
+# That should be convenient now:
+x_a  = a1_a[:,4:]
+

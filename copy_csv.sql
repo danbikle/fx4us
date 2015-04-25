@@ -26,12 +26,15 @@ INSERT INTO stage2(
   )
   SELECT 
   pair
-  ,date_trunc('hour',ttime+interval '30 minutes') ttime
+  ,date_trunc('hour',ttime) ttime
   ,bid
   ,ask
   FROM stage1 
   -- A spread > 10 pips is bad data:
   WHERE (ask-bid)/ask < 0.0010
+  AND ROUND(date_part('hour',ttime))   = 0
+  AND ROUND(date_part('minute',ttime)) = 0
+  AND ROUND(date_part('second',ttime)) < 15
   ORDER BY pair,ttime;
 
 INSERT INTO fxp(

@@ -16,7 +16,8 @@ do
   for onum in 1000 5000 10000
   do
     infile=/home/ann/fx_feat/${pair}.csv
-    pnum=25555    # number of predictions
+    pnum=25555 # number of predictions
+    pnum=999
     outfile=/home/ann/fit_predict/${pair}_${onum}_${pnum}.csv
     python fit_predict.py $infile $onum $pnum $outfile
     python plotem.py $outfile

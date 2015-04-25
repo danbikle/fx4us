@@ -56,3 +56,20 @@ for delta in delta_l:
   green_delta = delta * np.sign(prediction)
   green_l.append(green_pt + green_delta)
   cp_i += 1
+
+# I should plot
+import matplotlib
+# http://matplotlib.org/faq/howto_faq.html#generate-images-without-having-a-window-appear
+matplotlib.use('Agg')
+# Order is important here.
+# Do not move the next import:
+import matplotlib.pyplot as plt
+plt.plot(ttime_l, cp_l, 'b-', ttime_l, green_l, 'g-')
+pngf = csvf.replace('.csv','')+'.png'
+plt.savefig(pngf)
+plt.close()
+
+print('New png file: ')
+print(pngf)
+
+'bye'

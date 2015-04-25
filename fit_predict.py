@@ -40,8 +40,8 @@ if len(sys.argv) < 4:
 
 # I should read the commandline:
 infile  = sys.argv[1]
-onum    = sys.argv[2]
-pnum    = sys.argv[3]
+onum    = int(sys.argv[2])
+pnum    = int(sys.argv[3])
 outfile = sys.argv[4]
 pdb.set_trace()
 # I should load the csv into a DataFrame

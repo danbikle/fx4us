@@ -52,3 +52,15 @@ y_a  = a1_a[:,3 ]
 # That should be convenient now:
 x_a  = a1_a[:,4:]
 
+# I should specify gap between oos-data and train-data:
+is_oos_gap = 1
+
+# setup the prediction loop:
+pend   = len(y_a)
+pstart = pend - pnum
+
+for oos_start in range(pstart,pend):
+  print(a1_a[oos_start,0])
+  y_oos = y_a[oos_start]
+
+

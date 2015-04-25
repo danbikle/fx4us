@@ -34,13 +34,15 @@ print('hello, from '+ sys.argv[0])
 if len(sys.argv) < 4:
   print('I need a proper command line.')
   print('Demo:')
-  print('python '+sys.argv[0]+' /home/ann/fx_feat/aud_usd.csv 1000 100 /home/ann/fit_predict/aud_usd_1000_100.csv'
+  print('python '+sys.argv[0]+' /home/ann/fx_feat/aud_usd.csv 1000 100 /home/ann/fit_predict/aud_usd_1000_100.csv')
   print('Try again. bye.')
   sys.exit()
 
-# I should read the input csv:
-csvf = sys.argv[1]
-print(csvf)
+# I should read the commandline:
+infile  = sys.argv[1]
+onum    = sys.argv[2]
+pnum    = sys.argv[3]
+outfile = sys.argv[4]
 pdb.set_trace()
 # I should load the csv into a DataFrame
-df1 = pd.read_csv(csvf)
+df1 = pd.read_csv(infile)

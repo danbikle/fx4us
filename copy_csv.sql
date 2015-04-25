@@ -32,7 +32,6 @@ INSERT INTO stage2(
   FROM stage1 
   -- A spread > 10 pips is bad data:
   WHERE (ask-bid)/ask < 0.0010
-  AND ROUND(date_part('hour',ttime))   = 0
   AND ROUND(date_part('minute',ttime)) = 0
   AND ROUND(date_part('second',ttime)) < 15
   ORDER BY pair,ttime;

@@ -37,6 +37,15 @@ ttime_l = [datetime.datetime.strptime(row, "%Y-%m-%d %H:%M:%S") for row in np.ar
 cp_l     = [row for row in df1['cp']] 
 cplead_l = cp_l + cp_l[-1:]
 cplead_l = cplead_l[1:]
-pdb.set_trace()
+
 delta_a = np.array(cplead_l) - np.array(cp_l)
 delta_l = [elm for elm in delta_a]
+# I should avoid most recent delta_l since I dont know it yet.
+delta_l   = delta_l[:-1]
+cp_mirror = [cp_l[0]]
+green_l   = [cp_l[0]]
+pdb.set_trace()
+# I should get my predictions
+prediction_l = [(row-0.5) for row in df1['upprop']]
+# I should now have a list full of predictions centered on 0.0
+

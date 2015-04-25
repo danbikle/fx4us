@@ -61,6 +61,9 @@ pstart = pend - pnum
 
 for oos_start in range(pstart,pend):
   print(a1_a[oos_start,1])
-  y_oos = y_a[oos_start]
+  y_oos    = y_a[oos_start]
+  is_start = oos_start - is_oos_gap - onum
+  is_end   = is_start + onum
+  x_oos    = x_a[is_start:is_end]
 
 

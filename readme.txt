@@ -31,6 +31,8 @@ Instructions:
 
 - echo 'export PATH=~ann/anaconda3/bin:$PATH' >> ~ann/.bashrc
 
+- bash
+
 - Run this script:
   /home/ann/fx4us/fx4us.bash
   wait a long time for it to finish

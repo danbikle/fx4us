@@ -14,11 +14,13 @@ Instructions:
 
 - passwd ann
 
-- Run this script as root:
-  /home/ann/fx4us/install_postgres.bash
-
 - ssh ann@yourhost
   (or sudo su - ann)
+
+- git clone https://github.com/danbikle/fx4us.git
+
+- Run this script as root:
+  /home/ann/fx4us/install_postgres.bash
 
 - wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.2.0-Linux-x86_64.sh
 
@@ -26,7 +28,6 @@ Instructions:
 
 - mv ~ann/anaconda3/bin/curl ~ann/anaconda3/bin/curl_ana
 
-- git clone https://github.com/danbikle/fx4us.git
 
 - echo 'export PATH=~ann/anaconda3/bin:$PATH' >> ~ann/.bashrc
 
